@@ -19,3 +19,64 @@ Template Method scheme
 
 The implementation of template_method() is: call step_one(), call step_two(), and call step_three().  step_two() is a "hook" method – a placeholder. It is declared in the base class, and then defined in derived classes. Frameworks (large scale reuse infrastructures) use Template Method a lot. All reusable code is defined in the framework's base classes, and then clients of the framework are free to define customizations by creating derived classes as needed.
 
+```c#
+using System;
+
+  class MainApp
+  {
+    static void Main()
+    {
+      AbstractClass c;
+ 
+      c = new ConcreteClassA();
+      c.TemplateMethod();
+
+      c = new ConcreteClassB();
+      c.TemplateMethod();
+
+      // Wait for user 
+      Console.Read();
+    }
+  }
+
+  // "AbstractClass"
+  abstract class AbstractClass
+  {
+    public abstract void PrimitiveOperation1();
+    public abstract void PrimitiveOperation2();
+
+    // The "Template method" 
+    public void TemplateMethod()
+    {
+      PrimitiveOperation1();
+      PrimitiveOperation2();
+      Console.WriteLine("");
+    }
+  }
+
+  // "ConcreteClass" 
+  class ConcreteClassA : AbstractClass
+  {
+    public override void PrimitiveOperation1()
+    {
+      Console.WriteLine("ConcreteClassA.PrimitiveOperation1()");
+    }
+    public override void PrimitiveOperation2()
+    {
+      Console.WriteLine("ConcreteClassA.PrimitiveOperation2()");
+    }
+  }
+
+  class ConcreteClassB : AbstractClass
+  {
+    public override void PrimitiveOperation1()
+    {
+      Console.WriteLine("ConcreteClassB.PrimitiveOperation1()");
+    }
+    public override void PrimitiveOperation2()
+    {
+      Console.WriteLine("ConcreteClassB.PrimitiveOperation2()");
+    }
+  }
+  ```
+

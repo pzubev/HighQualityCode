@@ -15,7 +15,7 @@ Template Method is used prominently in frameworks. Each framework implements the
 ###Structure
 Template Method scheme
 
-[https://github.com/pzubev/HighQualityCode/blob/master/Template_Method_-2x.png](https://github.com/pzubev/HighQualityCode/blob/master/Template_Method_-2x.png)
+![alt tag](https://github.com/pzubev/HighQualityCode/blob/master/Template_Method_-2x.png)
 
 The implementation of template_method() is: call step_one(), call step_two(), and call step_three().  step_two() is a "hook" method – a placeholder. It is declared in the base class, and then defined in derived classes. Frameworks (large scale reuse infrastructures) use Template Method a lot. All reusable code is defined in the framework's base classes, and then clients of the framework are free to define customizations by creating derived classes as needed.
 
